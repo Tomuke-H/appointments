@@ -1,6 +1,7 @@
 import React, { useEffect, useState} from 'react'
 import User from './User';
 import axios from 'axios'
+import { Container, Grid, Segment } from 'semantic-ui-react';
 
 const Users = () => {
     const [users, setUsers] = useState([])
@@ -27,10 +28,10 @@ const Users = () => {
     }
 
     return (
-        <div>
-            <h1>All Users</h1>
+        <Container>
+            <h1>All Patients</h1>
             {renderUsers()}
-        </div>
+        </Container>
     )
 }
 

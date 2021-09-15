@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState} from 'react'
+import { Container } from 'semantic-ui-react';
 import Doctor from './Doctor';
 
 const Doctors = () => {
@@ -27,10 +28,10 @@ const Doctors = () => {
     }
 
     return (
-        <div>
+        <Container>
             <h1>All Doctors</h1>
             {renderDoctors()}
-        </div>
+        </Container>
     )
 }
 
