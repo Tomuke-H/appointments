@@ -1,10 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+import { Card } from 'semantic-ui-react';
 
-const Doctor = () => {
+const Doctor = ({doctor}) => {
     return (
-        <div>
-            <h1>I'm a Doctor!</h1>
-        </div>
+        <Card>
+            <Card.Content>
+                <p>{doctor.name}</p>
+                <Link to={`/doctors/${doctor.id}/appointments`}>Appointments</Link>
+            </Card.Content>
+        </Card>
     )
 }
 
