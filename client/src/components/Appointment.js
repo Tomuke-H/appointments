@@ -5,8 +5,11 @@ const Appointment = ({appointment}) => {
     return (
         <Card>
             <Card.Content>
-                <Card.Header>Patient: {appointment.user.name}</Card.Header>
-                <Card.Meta>{appointment.date}</Card.Meta>
+                <Card.Header>{appointment.date}</Card.Header>
+            </Card.Content>
+            <Card.Content>
+                <Card.Meta>Patient: {appointment.user.name}</Card.Meta>
+                <Card.Meta>Doctor: {appointment.doctor.name}</Card.Meta>
             </Card.Content>
         </Card>
     )
