@@ -22,7 +22,7 @@ class Navbar extends React.Component {
                 </Link>
                 <Link to='/users'>
                   <Menu.Item active={location.pathname === '/users'} >
-                    Users
+                    Patients
                  </Menu.Item >
                 </Link>
             </Menu>
