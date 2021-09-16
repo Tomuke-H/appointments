@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import Appointment from './Appointment';
+import Appointment from '../components/Appointment';
 
 const UserAppointments = (props) => {
 

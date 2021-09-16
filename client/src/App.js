@@ -2,12 +2,11 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { Container } from 'semantic-ui-react';
 import { Route, Switch } from 'react-router';
-import Home from './components/Home';
-import Things from './components/Things';
-import Doctors from './components/Doctors';
-import Users from './components/Users';
-import DoctorAppointments from './components/DoctorAppointments';
-import UserAppointments from './components/UserAppointments';
+import Home from './pages/Home';
+import Doctors from './pages/Doctors';
+import DoctorAppointments from './pages/DoctorAppointments';
+import UserAppointments from './pages/UserAppointments';
+import Users from './pages/Users';
 
 function App() {
   return (
