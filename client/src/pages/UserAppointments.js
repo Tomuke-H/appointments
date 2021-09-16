@@ -1,25 +1,18 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Appointment from '../components/Appointment';
+import LoadingGraphic from '../components/LoadingGraphic';
+import useAxiosOnMount from '../hooks/useAxiosOnMount';
 
 const UserAppointments = (props) => {
 
     const [appointments, setAppointments] = useState([])
-    const [user, setUser] = useState('')
+    const [appointmentLoading, setAppointmentLoading] = useState(true)
 
+    const {data:user, error, loading } = useAxiosOnMount(`/api/users/${props.match.params.id}`)
     useEffect(()=>{
-        getUser();
         getAppointments();
     }, [])
-
-    const getUser = async () => {
-        try {
-            let res= await axios.get(`/api/users/${props.match.params.id}`)
-            setUser(res.data)
-        }catch (err){
-            console.log(err)
-        }
-    }
 
     const getAppointments = async () => {
         try{
@@ -28,10 +21,15 @@ const UserAppointments = (props) => {
             setAppointments(filteredApps)
         }catch (err){
             console.log(err)
+        } finally {
+            setAppointmentLoading(false)
         }
     }
 
+
     const renderApps = () => {
+        if(appointmentLoading) return <LoadingGraphic />
+        if(appointments.length < 1) return <p>No Appointments</p>
         return appointments.map(a => {
             return (
                 <Appointment key={a.id} appointment={a} />
@@ -42,7 +40,7 @@ const UserAppointments = (props) => {
     return (
         <div>
             <h1>Patient {user.name}'s Appointments</h1>
-            {appointments.length > 0 ? renderApps() : (<h1>{`${user.name} has no appointments`}</h1>)}
+            {renderApps()}
         </div>
     )
 }
